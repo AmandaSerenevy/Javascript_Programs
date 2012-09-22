@@ -1,0 +1,20 @@
+#AddGame{
+    margin: 2em 5em 5em 5em;
+}
+
+.padded{
+    margin: 0em 0em 1em 0em;
+}
+
+#Alert {
+    display: none;
+}
+
+#Gameboard {
+    display: none;
+    border: solid 1px black;
+}
+
+#Newgame {
+  display: none;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Adding To 30 Game</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="AddTo30Game.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="AddTo30Game.js"></script>
+</head>
+<body>
+<div id="AddGame">
+
+<div id="Rules" class="padded">
+<h2>Adding to 30 Game</h2>
+<p>Rules: Two players take turns adding a number from 1 to 5 to the current
+total. The player who makes a sum of 30 wins.</p>
+
+<p>For example, the first player can say "0+1=1", "0+2=2", "0+3=3",
+"0+4=4", or "0+5=5".</p>
+
+<p>If the first player says "0+3=3", then the second player can say
+"3+1=4", "3+2=5", or anything up to "3+5=8".</p>
+</div>
+
+
+<div id="PlayerOrder" class="padded">
+<p>Would you like to go 1st or 2nd?</p>
+   <button id="1st" class="btn">1st</button>
+   <button id="2nd" class="btn">2nd</button>
+</div>
+
+
+<div id="Gameboard" class="padded">
+<form id="Gameform"class="">
+
+<div id="LastPlay">
+<p>Computer's Last Play:</p>
+<input name="last_play_start" id="last_play_start" class="input-mini" type="text" disabled="true"></input> + <input name="last_play_addend" id="last_play_addend" autocomplete="off" type="text" class="input-mini" disabled="true"></input> = <input name="last_play_sum" id="last_play_sum" autocomplete="off" type="text" class="input-mini"disabled="true"></input>
+</div>
+
+<div id="YourPlay">
+<p>Your Play:</p>
+<input name="start_from" id="start_from" class="input-mini" type="text" disabled="true"></input> + <input name="addend" id="addend" autocomplete="off" type="text" class="input-mini"></input> = <input name="sum" id="sum" autocomplete="off" type="text" class="input-mini"></input>
+</div>
+  <div class="btn-group"> <button id="Go" class="btn">Go</button> </div>
+
+</form>
+</div>
+
+<div id="AlertArea"></div>
+  <div class="btn-group"> <button id="Newgame" class="btn">New Game</button> </div>
+
+
+</div>
+</body>
+</html>
+
+
