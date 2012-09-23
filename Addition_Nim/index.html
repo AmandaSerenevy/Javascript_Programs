@@ -13,14 +13,34 @@
 
 <div id="Rules" class="padded">
 <h2>Addition Nim</h2>
-<p>Rules: Two players take turns adding a number from 1 to 5 to the current
-total. The player who makes a sum of 30 wins.</p>
+<p>Rules:
+   <ul>
+    <li>Two players take turns adding a number from 1 to the maximum
+ addend to the current total.</li>
+    <li>The player who makes the sum equal to the target number
+ wins.</li></ul></p>
 
-<p>For example, the first player can say "0+1=1", "0+2=2", "0+3=3",
-"0+4=4", or "0+5=5".</p>
+
+
+<p>For example, the first player can say "0+1=1", "0+2=2", or anything up to the maximum addend.</p>
 
 <p>If the first player says "0+3=3", then the second player can say
-"3+1=4", "3+2=5", or anything up to "3+5=8".</p>
+"3+1=4", "3+2=5", or anything up to the maximum addend.</p>
+</div>
+
+<div id="ChooseRules" class="padded">
+  <br><br>
+  <p>Maximum Addend:  <input name="maximum_addend" id="maximum_addend" class="input-mini" type="text"></input> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+  Target Number:  <input name="target" id="target" class="input-mini" type="text"></input></p>
+  <div class="btn-group"> <button id="Setrules" class="btn">Set Rules</button> </div>
+</div>
+
+
+<div id="ShowRules" class="padded">
+<p>Maximum Addend:
+  <input name="max" id="max" class="input-mini" type="text" disabled="true"></input>
+Target Number:
+  <input name="target_num" id="target_num" class="input-mini" type="text" disabled="true"></input></p>
 </div>
 
 
@@ -49,7 +69,10 @@ total. The player who makes a sum of 30 wins.</p>
 </div>
 
 <div id="AlertArea"></div>
-  <div class="btn-group"> <button id="Newgame" class="btn">New Game</button> </div>
+
+<div id="Again">
+  <button id="Newgame" class="btn">Play Game Again</button> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<button id="Changegame" class="btn">Change Game Rules</button>
+</div>
 
 
 </div>

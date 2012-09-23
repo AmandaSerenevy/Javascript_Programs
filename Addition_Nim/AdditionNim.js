@@ -1,21 +1,54 @@
-var target=30;
-var mod=6;
-
 function set_up_page(){
   $("#1st").bind("click",function(){start_game(1)});
   $("#2nd").bind("click",function(){start_game(2)});
   $("#Go").bind("click",submit);
+  $("#Changegame").bind("click",changegame);
+  $("#Setrules").bind("click",setrules);
   $("#Newgame").bind("click",newgame);
 }
 
+function changegame(){
+  $("#AlertArea").text("");
+  $("#ShowRules").slideUp();
+  $("#Gameboard").slideUp();
+  $("#ChooseRules").slideDown();
+  $("#Again").slideUp();
+  return false;
+}
+
+function setrules(){
+  $("#AlertArea").text("");
+  var target = parseFloat($("#target").val());
+  var mod=1+parseFloat($("#maximum_addend").val());
+
+  if (mod!=Math.floor(mod) || mod <=0 || target!=Math.floor(target) || target <=0) {
+    show_alert("error","Warning!","You must enter whole numbers greater than 0.");
+    return false;
+  }
+
+  else {
+    $("#max").val(mod-1);
+    $("#target_num").val(target);
+    $("#ChooseRules").slideUp();
+    $("#ShowRules").slideDown();
+    $("#PlayerOrder").slideDown();
+  }
+
+  return false;
+}
+
+
 function newgame(){
+
   $("#PlayerOrder").slideDown();
   $("#Gameboard").slideUp();
+  $("#Again").slideUp();
   reset_gameboard();
   return false;
 }
 
 $(set_up_page);
+
 
 function start_game(order){
   reset_gameboard();
@@ -60,8 +93,16 @@ function take_turn(){
 
 
 function decide_what_to_add(sum){
-  if (sum%mod==0){return (Math.floor(1+(mod-1)*Math.random()))}
-  else {return (mod-sum%mod)}
+  var target=parseFloat($("#target_num").val());
+  var mod=1+parseFloat($("#max").val());
+  if (sum%mod == target%mod){return (Math.floor(1+(mod-1)*Math.random()))}
+  else {
+    var response = mod - (sum%mod) + (target%mod);
+    if (response > (mod-1)){
+      var response = response - mod;
+
+    }
+    return response;}
 }
 
 function update_gameboard(old_sum,add_value){
@@ -89,15 +130,17 @@ function submit(){
 }
 
 function check_win(entity,total){
-  if (total == target){
+  if (total == parseFloat($("#target_num").val())){
     $("#Newgame").show();
     $("#Go").hide();
     if (entity == "human"){
       show_alert("success", "Congratulations!", "You win!");
+      $("#Again").slideDown();
     }
     else{
       show_alert("error","Sorry!", "You lose!");
       $("#YourPlay").hide();
+      $("#Again").slideDown();
     }
     return true;
   }
@@ -114,8 +157,9 @@ function check_inputs(){
     return false;
   }
 
-  if ((0 >= addend) || (addend > mod-1 ) || (addend!=Math.floor(addend))){
-      show_alert("error","Warning!","You must add a whole number between 1 and "+(mod-1));
+  var max = parseFloat($("#max").val());
+  if ((0 >= addend) || (addend > max ) || (addend!=Math.floor(addend))){
+      show_alert("error","Warning!","You must add a whole number between 1 and "+max);
       return false;
      }
 
@@ -124,7 +168,7 @@ function check_inputs(){
       return false;
     }
 
-  if (sum > target) {
+  if (sum > parseFloat($("#target_num").val())) {
         show_alert("error","Warning!","You overshot the target! Try adding a smaller number.");
         return false;
       }
