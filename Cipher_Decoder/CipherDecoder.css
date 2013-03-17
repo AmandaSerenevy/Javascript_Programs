@@ -1,0 +1,41 @@
+
+.flushright {
+    text-align: right;
+}
+
+.stretch { width: 100%; height: 100%; }
+.stretch-x { width: 100%; }
+.stretch-y { height: 100%; }
+
+.template { display: none; }
+
+.tt { font-family: "monospace"; }
+
+.ciphertext { color: #777; }
+.plaintext  { color: blue; }
+
+#lookup_table_head th    { text-align: center; }
+#lookup_table_body input { margin-bottom: -1px; margin-top: -4px; padding-top: 0px; padding-bottom: 0px; }
+#lookup_table_body td    { vertical-align: middle; }
+#lookup_table_body .lu_c { text-align: center; }
+#lookup_table_body .lu_f { text-align: right; }
+
+#alert_container {
+    position: fixed;
+    top: 10px;
+    left: 15%;
+    width: 70%;
+}
+
+.icon-sortable {
+    background-position: 2px 2px;
+    background-image: url("img/sortable.png");
+}
+.icon-sortable-up {
+    background-position: 2px 2px;
+    background-image: url("img/sortable-up.png");
+}
+.icon-sortable-down {
+    background-position: 2px 2px;
+    background-image: url("img/sortable-down.png");
+}
