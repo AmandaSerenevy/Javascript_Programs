@@ -1,0 +1,25 @@
+
+Javascript Programs
+===================
+
+Various educational javascript programs.
+
+
+Addition Nim
+------------
+
+Demo: https://riverbendmath.org/modules/Nim_Games/Addition_Nim/
+
+A counting game. Rules:
+
+* Two players take turns adding a number from 1 to the maximum addend to
+  the current total.
+
+* The player who makes the sum equal to the target number wins.
+
+
+
+Cipher Decoder
+--------------
+
+Tool to decode substitution ciphers.
