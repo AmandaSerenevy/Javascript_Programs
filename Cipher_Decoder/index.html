@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cipher Decoder</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" /> 
+  <link rel="stylesheet" href="CipherDecoder.css" type="text/css" />
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/handlebars.js"></script>
+  <script type="text/javascript" src="sortElements.js"></script>
+  <script type="text/javascript" src="CipherDecoder.js"></script>
+
+<style type="text/css">
+<!--/*--><![CDATA[/*><!--*/
+  body { padding: 20px; }
+/*]]>*/-->
+</style>
+
+</head>
+<body>
+
+<div id="CipherDecoder">
+  <div id="alert_container">
+    <div id="alert_template" class="template">
+      <div class="alert fade in out {{class}}">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{alert}}
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+
+      <div class="span8">
+        <h4>Cipher Text</h4><textarea id="ciphertext" rows="6" class="stretch-x tt"></textarea>
+        <h4>Solution</h4><pre id="plaintext" class="well tt"></pre>
+
+        <h4>Statistics</h4>
+        <p><a href="http://scottbryce.com/cryptograms/stats.htm">English Frequency Information</a></p>
+        <p>Letters by frequency: <span id="letter_freq"></span></p>
+        <p>Digraphs by frequency: <span id="digraph_freq"></span></p>
+
+        <h4>Options</h4>
+        <div id="options">
+          <label class="checkbox"><input type="checkbox" id="include_cipher" checked="on"> include cipher in solution</label>
+          <label class="checkbox"><input type="checkbox" id="allow_dups"> allow repeated substitutions</label>
+        </div>
+      </div>
+
+      <div class="span4">
+        <table id="lookup_table" class="table table-condensed">
+          <thead id="lookup_table_head">
+            <tr>
+              <th sort-default="-1" sort-type="int">F <i class="icon-sortable"></i></th>
+              <th>C <i class="icon-sortable-up"></i></th>
+              <th sort-type="val" sort-empty-last="true">P <i class="icon-sortable"></i></th>
+              <th sort-type="val" sort-empty-last="true">Notes <i class="icon-sortable"></i></th>
+            </tr>
+          </thead>
+          <tbody id="lookup_table_template" class="template">
+            <tr>
+              <td class="lu_f">{{frequency}}</td>
+              <td class="lu_c">{{ciphersymbol}}</td>
+              <td class="lu_p"><input type="text" style="width: 1.5em;" value="{{plainsymbol}}"></td>
+              <td class="lu_n"><input type="text" class="stretch-x"></td>
+            </tr>
+          </tbody>
+          <tbody id="lookup_table_body"></tbody>
+        </table>
+        <div class="flushright"><button id="clear_lookup_table" class="btn btn-danger">Clear Replacements</button></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
